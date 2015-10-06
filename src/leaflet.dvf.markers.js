@@ -556,7 +556,8 @@ var PathFunctions = PathFunctions || {
 		}
 
 		this._defs.appendChild(pattern);
-		this._path.setAttribute('fill', 'url(#' + patternGuid + ')');
+		var urlWithGETParams = (window.location.search.replace("?", "") != "" ? "?" + window.location.search.replace("?", "") : "");
+		this._path.setAttribute('fill', 'url(' + urlWithGETParams + '#' + patternGuid + ')');
 	},
 
 	_getDefaultDiameter: function (radius) {
@@ -685,7 +686,8 @@ var PathFunctions = PathFunctions || {
                 context._path.setAttribute('stroke', 'url(#' + guid + ')');
             }
             else {
-                context._path.setAttribute('fill', 'url(#' + guid + ')');
+		var urlWithGETParams = (window.location.search.replace("?", "") != "" ? "?" + window.location.search.replace("?", "") : "");
+                context._path.setAttribute('fill', 'url(' + urlWithGETParams + '#' + guid + ')');
             }
 		}
 		else if (!context.options.fill) {
