@@ -261,8 +261,9 @@ var PathFunctions = PathFunctions || {
             gradient.setAttribute(key, gradientOptions[key]);
         }
 
-        var children = gradient.children;
-        var childLength = children.length;
+	//Oprava IE
+        var children = gradient.childNodes;
+        var childLength = children ? children.length : 0;
 
         for (var i = 0, len = stops.length; i < len; ++i) {
             var stop = stops[i];
